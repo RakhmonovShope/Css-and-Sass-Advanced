@@ -1,0 +1,36 @@
+@mixin absolutePosition($topVal, $leftVal) {
+	position: absolute;
+	top: $topVal;
+	left: $leftVal;
+}
+
+@mixin clearfix {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin respond($device) {
+	@if $device == phone {
+		@media screen and (max-width: 600px) {
+			@content;
+		}
+	}
+	@if $device == tab-port {
+		@media screen and (max-width: 900px) {
+			@content;
+		}
+	}
+	@if $device == tab-land {
+		@media screen and (max-width: 1200px) {
+			@content;
+		}
+	}
+	@if $device == big-desctop {
+		@media screen and (min-width: 1800px) {
+			@content;
+		}
+	}
+}
